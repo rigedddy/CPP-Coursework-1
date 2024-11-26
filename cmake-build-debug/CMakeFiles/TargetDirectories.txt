@@ -1,0 +1,3 @@
+C:/Users/nazza/CLionProjects/CPPCoursework1/cmake-build-debug/CMakeFiles/CPPCoursework1.dir
+C:/Users/nazza/CLionProjects/CPPCoursework1/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/nazza/CLionProjects/CPPCoursework1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
