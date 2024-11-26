@@ -1,7 +1,8 @@
-//
-// Created by nazza on 26/11/2024.
-//
-
 #include "person.h"
+#include <iostream>
+
+using namespace std;
+
+
 
 
