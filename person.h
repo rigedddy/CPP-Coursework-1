@@ -19,20 +19,17 @@ class Person {
     public:
     // creating constructors for name and payment
     Person(string name, float totalPayment);
+    Person(const string& PersonName);
 
-    // creating getters for name and payment
+
+    // creating getter for name
     string getName() const;
-    //float getTotalPayment();
 
     // method to add all the purchases
-    void addPurchases(float payment) {
-        totalPayment += payment;
-    }
+    void addPurchases(float payment);
 
-    float getTotalPayment() const {
-        return totalPayment;
-    }
-
+    // creating getter for payment
+    float getTotalPayment() const;
 
 };
 
