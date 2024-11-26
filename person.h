@@ -16,6 +16,13 @@ class Person {
     string name;
     float totalPayment;
 
+    public:
+    // creating constructors for name and payment
+    Person(string name, float totalPayment);
+
+    // creating getters for name and payment
+    string getName();
+    float getTotalPayment();
 };
 
 
