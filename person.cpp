@@ -13,8 +13,8 @@ string Person::getName() const {
 }
 
 // method for adding payments together
-float Person::getTotalPayment() const {
-    return totalPayment;
+float Person::getTotalPayment(float payment) {
+    totalPayment += totalPayment;
 }
 
 // getter for totalPayment

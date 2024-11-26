@@ -25,6 +25,8 @@ class Person {
     // creating getter for name
     string getName() const;
 
+    float getTotalPayment(float payment);
+
     // method to add all the purchases
     void addPurchases(float payment);
 
