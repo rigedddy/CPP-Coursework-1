@@ -21,18 +21,15 @@ class Person {
     Person(string name, float totalPayment);
     Person(const string& PersonName);
 
-
     // creating getter for name
     string getName() const;
-
-    float getTotalPayment(float payment);
 
     // method to add all the purchases
     void addPurchases(float payment);
 
     // creating getter for payment
     float getTotalPayment() const;
-
+    //float addPayment(float payment);
 };
 
 
