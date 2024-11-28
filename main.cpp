@@ -20,6 +20,8 @@ vector<Person> read_people (ifstream& peopleIn, ifstream& paymentsIn){
         }
     }
 
+    //cout << people.size() << endl;
+
     // reading payments.txt
     while (getline(paymentsIn, line)) {
         istringstream isLine(line);
@@ -30,6 +32,7 @@ vector<Person> read_people (ifstream& peopleIn, ifstream& paymentsIn){
             //cout << "Reading: " << PersonName << " " << item << " " << price << endl;
             for (Person& person : people) {
                 if (person.getName() == PersonName) {
+                    //cout << PersonName << " " << item << " " << price << endl;
                     person.addPurchases(item, price);
                 }
             }
