@@ -9,7 +9,7 @@
 
 using namespace std;
 
-vector<Person> read_people (istream& peopleIn, istream paymentsIn){
+vector<Person> read_people (ifstream& peopleIn, ifstream& paymentsIn){
     vector<Person> people;
     string line;
 
@@ -19,17 +19,80 @@ vector<Person> read_people (istream& peopleIn, istream paymentsIn){
             people.push_back(line);
         }
     }
+
+    // reading payments.txt
+    while (getline(paymentsIn, line)) {
+        istringstream isLine(line);
+        string PersonName, item;
+        float price;
+
+        if (isLine >> PersonName >> item >> price) {
+            //cout << "Reading: " << PersonName << " " << item << " " << price << endl;
+            for (Person& person : people) {
+                if (person.getName() == PersonName) {
+                    person.addPurchases(item, price);
+                }
+            }
+        }
+    }
+
+    return people;
 }
 
 int main(){
-    // Person bob("Bob");
+
+
+    ifstream filePeople("people.txt");
+    if (!filePeople) {
+        cout << "Error opening file " << endl;
+        return 1;
+    }
+    ifstream filePayments("payments.txt");
+    if (!filePayments) {
+        cout << "Error opening file " << endl;
+        return 1;
+    }
+
+    // read people and purchases
+    vector<Person> people = read_people(filePeople, filePayments);
+
+    // print the results
+    for (const Person& person : people) {
+        cout << person.getName() << endl;
+
+        const vector<string>& items = person.getItem();
+        const vector<float>& prices = person.getPrice();
+        float total = 0;
+
+        for (size_t i = 0; i < items.size(); ++i) {
+            cout << items[i] << " " << prices[i] << endl;
+            total = total + prices[i];
+        }
+
+        cout << "Total: " << total << endl << endl;
+    }
+
+    return 0;
+
+    // string fileName;
     //
-    // bob.addPurchases(2.5);
-    // bob.addPurchases(3.5);
+    // cout << "Please enter the file name: ";
+    // getline(cin, fileName);
     //
-    // cout << "Name: " << bob.getName() << endl;
-    // cout << "Total Payment: " << bob.getTotalPayment() << endl;
+    // ifstream inFile;
     //
-    // return 0;
+    // inFile.open(fileName);
+    //
+    // if (inFile.fail()) {
+    //     cout << "Error opening file " << fileName << endl;
+    //     return 1;
+    // }
+    //
+    // char c;
+    // while (inFile.get(c)) {
+    //     cout << c;
+    // }
+    // inFile.close();
+
 
 }

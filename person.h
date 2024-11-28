@@ -11,8 +11,8 @@
 
 using namespace std;
 
-
 class Person {
+    private:
     string name;
     //float totalPayment;
     vector<string> items;
