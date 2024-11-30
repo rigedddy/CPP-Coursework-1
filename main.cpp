@@ -1,3 +1,5 @@
+// NAZIFA FIROZ
+// ID NUMBER: 230025069
 #include <iostream>
 #include "person.h"
 #include <fstream>
@@ -24,15 +26,16 @@ vector<Person> read_people (ifstream& peopleIn, ifstream& paymentsIn){
 
     // reading payments.txt
     while (getline(paymentsIn, line)) {
+        // creating a string stream for the current line
         istringstream isLine(line);
         string PersonName, item;
         float price;
 
+        // get name, item and price in that line
         if (isLine >> PersonName >> item >> price) {
-            //cout << "Reading: " << PersonName << " " << item << " " << price << endl;
+            // loop through people to match the names
             for (Person& person : people) {
                 if (person.getName() == PersonName) {
-                    //cout << PersonName << " " << item << " " << price << endl;
                     person.addPurchases(item, price);
                 }
             }
@@ -46,12 +49,12 @@ int main(){
 
 
     ifstream filePeople("people.txt");
-    if (!filePeople) {
+    if (!filePeople) { // check if people.txt can open
         cout << "Error opening file " << endl;
         return 1;
     }
     ifstream filePayments("payments.txt");
-    if (!filePayments) {
+    if (!filePayments) { // check if payments.txt can open
         cout << "Error opening file " << endl;
         return 1;
     }
@@ -67,7 +70,8 @@ int main(){
         const vector<float>& prices = person.getPrice();
         float total = 0;
 
-        for (size_t i = 0; i < items.size(); ++i) {
+        // loop through all purchased items and their prices
+        for (int i = 0; i < items.size(); i++) {
             cout << items[i] << " " << prices[i] << endl;
             total = total + prices[i];
         }
@@ -77,25 +81,6 @@ int main(){
 
     return 0;
 
-    // string fileName;
-    //
-    // cout << "Please enter the file name: ";
-    // getline(cin, fileName);
-    //
-    // ifstream inFile;
-    //
-    // inFile.open(fileName);
-    //
-    // if (inFile.fail()) {
-    //     cout << "Error opening file " << fileName << endl;
-    //     return 1;
-    // }
-    //
-    // char c;
-    // while (inFile.get(c)) {
-    //     cout << c;
-    // }
-    // inFile.close();
 
 
 }

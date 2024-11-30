@@ -12,14 +12,13 @@
 using namespace std;
 
 class Person {
-    private:
     string name;
     //float totalPayment;
     vector<string> items;
     vector<float> prices;
 
     public:
-    // creating constructors for name and payment
+    // creating constructors for name
     //Person(string name, float totalPayment);
     Person(const string& PersonName);
 
